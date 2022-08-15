@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  	<style>
+  	html{
+	background-color:#FFFDFA;
+	
+	margin-top:10rem;
+}
+.flexcontainer{
+	background-color:#FFFDFA;
+	display:flex;
+	justify-content:space-evenly;
+	flex-direction:row;
+}
+.flexitem{
+		width:auto;
+		height:auto;
+		padding:5rem;
+		border:2px solid #2e6da4;
+		border-radius:10px;
+		background-color:#f0f5f5;
+		
+	}
+
+  	</style>
+</head>
+<body>
+<nav class="navbar navbar-dark bg-primary navbar-fixed-top ">
+	<div class="navbar-header">
+		<a class="navbar-brand" style="font-size: 20px;color:#f0f5f5" href="#">Contact Application </a>
+	</div>
+	<ul class="nav navbar-nav navbar-right">
+		<li><a th:href="@{/logout}" style="color: black;"><span class="glyphicon glyphicon-user"></span>Log Out</a></li>
+	</ul>
+</nav>
+<div class="flexcontainer">
+	<div class="flexitem">
+		<form th:action="addNewContact"  th:method="post" th:object="${addContact}">
+			<h2 >Add Contacts</h2><br>
+			<label for="Name">Name</label><br>
+			<input type="text" th:field="*{cname}" th:required placeholder="Enter Your Name"><br><br>
+			<label for="Email">Email</label><br>
+			<input type="email" th:field="*{cemail}" th:required placeholder="Enter Your Email"><br><br>
+			<label for="Phone">Phone No</label><br>
+			<input type="text" th:field="*{cphone}" th:required placeholder="Enter Your number"><br><br>
+			<!--<input type="text" th:field="*{userEmail}">--><br><!-- th:value="${Signup.getEmail()}"-->
+			<button class="btn btn-primary btn-lg btn-block" type="submit">Add Contact</button>
+		</form>
+	</div>
+	<div >
+		<table class="table table-striped">
+			<thead class="table-dark">
+				<tr>
+					<!--<th scope="col">SNo</th>--><th scope="col">Name</th><th scope="col">Email</th><th scope="col">Phone</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr scope="row" th:each="contacts:${Contact}">
+					<!--<td th:text="${contacts.getId()}"></td>-->
+					<td th:text="${contacts.getCname()}"></td>
+					<td th:text="${contacts.getCemail()}"></td>
+					<td th:text="${contacts.getCphone()}"></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+</body>
+</html>

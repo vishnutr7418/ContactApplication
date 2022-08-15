@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  	<style>
+  	html,body{
+	height:100%;
+	background-color:#FFFDFA;
+}
+	body{
+		display:flex;
+		justify-content: center;
+		align-items: center;
+	}
+	.divsign{
+		width:auto;
+		height:auto;
+		padding:5rem;
+		border:2px solid #2e6da4;
+		border-radius:10px;
+		background-color:#f0f5f5;
+		
+	}
+	
+  	</style>
+</head>
+<body>
+<nav class="navbar navbar-dark bg-primary navbar-fixed-top ">
+	<div class="navbar-header">
+		<a class="navbar-brand" style="font-size: 20px;color:#f0f5f5" href="#">Contact Application </a>
+	</div>
+</nav>
+<div class="divsign">
+<form th:action="register" th:method="post" th:object="${signup}">
+	<h2>Sign Up</h2>
+	<label for="name">Name</label><br>
+	<input class="form-control" type="text" th:field="*{name}" th:required placeholder="Enter your name"><br>
+	<label for="email">Email</label><br>
+	<input class="form-control" type="email" th:field="*{email}" th:required placeholder="Enter your email"><br>
+	<label for="password">Password</label><br>
+	<input class="form-control" type="password" th:field="*{password}" th:required placeholder="Enter the password"><br>
+	<label for="secret">Secret</label><br>
+	<input class="form-control" type="text" th:field="*{secret}" th:required placeholder="Enter the secret code"><br>
+	<button class="btn btn-primary btn-lg btn-block" type="submit">Sign Up</button>
+</form>
+</div>
+</body>
+</html>

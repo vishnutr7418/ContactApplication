@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+	<title>Index</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  	<style>
+  	footer{
+	background-color:gainsboro;
+}
+  	</style>
+</head>
+<body>
+	<nav class="navbar navbar-dark bg-primary navbar-fixed-top ">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" style="font-size: 20px;color:black" href="#">Contact Application </a>
+			</div>
+			<ul class="nav navbar-nav ">
+				<li><a href="#" style="color:black" >HOME</a></li>
+				<li><a href="#" style="color: black;">ABOUT</a></li>
+				<li><a href="#" style="color: black;">PRODUCTS</a></li>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+      			<li><a th:href="@{/signup}" style="color: black;"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      			<li><a th:href="@{/signin}" style="color: black;"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+    		</ul>
+		</div>
+	</nav>	
+	<div>
+	</div>
+	<footer class=" navbar-fixed-bottom">
+		<div class="text-center">To create an account 
+		<a class="text-primary" th:href="@{/signup}" style="text-decoration: none;">SignUp</a> or 
+        <a class="text-primary" th:href="@{/signin}" style="text-decoration: none;">SignIn</a>
+      	</div>
+	</footer>
+</body>
+</html>
